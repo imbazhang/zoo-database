@@ -1,0 +1,13 @@
+insert into fodder values(1, 'meat', DATE('2021-05-30'), DATE('2021-06-08'), 10, 2145, 'cold chain', 'SOE');
+insert into fodder values(2, 'leaf', DATE('2021-05-24'), DATE('2021-06-09'), 0.01, 6423, 'wholesale market', 'CEA');
+insert into fodder values(3, 'banana', DATE('2021-05-29'), DATE('2021-06-05'), 2, 576, 'cold chain', 'BSO');
+insert into fodder values(4, 'grass', DATE('2021-05-21'), DATE('2021-06-10'), 0.01, 6231, 'wholesale market', 'SOJ');
+insert into fodder values(5, 'bamboo', DATE('2021-05-30'), DATE('2021-06-02'), 0.02, 1024, 'wholesale market', 'SOJ');
+insert into fodder values(6, 'fish', DATE('2021-05-21'), DATE('2021-06-20'), 7, 2653, 'cmanufacturer', 'CEA');
+insert into fodder values(7, 'rabbit', DATE('2021-05-23'), DATE('2021-07-01'), 5, 1753, 'cmanufacturer', 'SOE');
+insert into fodder values(8, 'shrimp', DATE('2021-05-26'), DATE('2021-07-01'), 2, 2789, 'manufacturer', 'CEA');
+insert into fodder values(9, 'ant', DATE('2021-05-28'), DATE('2021-07-01'), 1, 101, 'cold chain', 'SOE');
+insert into fodder values(10, 'hay', DATE('2021-05-28'), DATE('2021-08-03'), 0.005, 5958, 'wholesale market', 'SOJ');
+insert into fodder values(11, 'insect', DATE('2021-05-12'), DATE('2021-07-12'), 0.5, 271, 'manufacturer', 'WOC');
+insert into fodder values(12, 'alga', DATE('2021-05-16'), DATE('2021-07-15'), 0.04, 481, 'manufacturer', 'CEA');
+insert into fodder values(13, 'plankton', DATE('2021-05-12'), DATE('2021-07-21'), 0.05, 196, 'manufacturer', 'CEA');
