@@ -1,0 +1,11 @@
+drop table if exists `diet`;
+create table `diet`
+(
+    `species_id`     int NOT NULL,
+    `fodder_id` int NOT NULL,
+    constraint diet_ibfk_1 foreign key (species_id) references species (species_id),
+    constraint diet_ibfk_2 foreign key (fodder_id) references fodder (fodder_id),
+    primary key (species_id, fodder_id)
+) engine = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
