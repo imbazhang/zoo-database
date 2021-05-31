@@ -1,0 +1,11 @@
+CREATE TABLE `fodder` (
+  `fodder_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fodder_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `manufacture_date` date DEFAULT NULL,
+  `expire_date` date DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `stock` float DEFAULT NULL,
+  `supplier` varchar(255) DEFAULT NULL,
+  `manufacturer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`fodder_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

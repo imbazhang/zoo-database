@@ -26,3 +26,7 @@ Final Project of Database System
 - [ ] 设计：`数据存储需求`，即各个字段的可能值
 - [ ] 设计：常用 `sql查询`、`函数`、`触发器`
 
+#### Application
+
+- [ ] to be finished :walking:
+
