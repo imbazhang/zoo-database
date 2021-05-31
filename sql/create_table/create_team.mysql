@@ -1,0 +1,14 @@
+drop table if exists `team`;
+create table `team`
+(
+    `team_id`   int NOT NULL AUTO_INCREMENT,
+    `zone_id`   int NOT NULL,
+    `leader_id` int not null,
+    `total_cnt` int not null,
+    constraint team_ibfk_1 foreign key (zone_id) references zone (zone_id),
+    constraint team_ibfk_2 foreign key (leader_id) references employee (employee_id),
+    primary key (`team_id`)
+) engine = InnoDB
+  AUTO_INCREMENT = 28
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;

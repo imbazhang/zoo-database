@@ -1,0 +1,11 @@
+drop table if exists `zone`;
+create table `zone`
+(
+    `zone_id`      int          NOT NULL AUTO_INCREMENT,
+    `geo_position` varchar(255) NOT NULL,
+    `zoneName`     varchar(255) not null,
+    primary key (`zone_id`)
+) engine = InnoDB
+  AUTO_INCREMENT = 28
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;

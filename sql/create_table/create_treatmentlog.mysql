@@ -1,0 +1,16 @@
+drop table if exists `treatmentlog`;
+create table treatmentlog
+(
+    treatmentlog_id int(11) unsigned not null
+        primary key,
+    animal_id       int not null,
+    employee_id     int not null,
+    treatment_date  date             null,
+    diagnostic      varchar(255)     null,
+    constraint treatmentlog_ibfk_1 foreign key (animal_id) references animal (animal_id),
+    constraint treatmentlog_ibfk_2 foreign key (employee_id) references employee (employee_id)
+)
+    engine = InnoDB
+    AUTO_INCREMENT = 28
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;

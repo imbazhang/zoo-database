@@ -1,0 +1,11 @@
+drop table if exists `affiliation`;
+create table `affiliation`
+(
+    `team_id`     int NOT NULL,
+    `employee_id` int NOT NULL,
+    constraint affiliation_ibfk_1 foreign key (team_id) references team (team_id),
+    constraint affiliation_ibfk_2 foreign key (employee_id) references employee (employee_id),
+    primary key (team_id, employee_id)
+) engine = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
