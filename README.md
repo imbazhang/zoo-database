@@ -17,9 +17,7 @@ Final Project of Database System
 
 
 
-### Todo
-
-#### Database
+### Database
 
 - [x] 设计：`E-R 图`
 - [x] 设计：`关系模式`、`基本表`
@@ -28,13 +26,30 @@ Final Project of Database System
 
 
 
-#### Application
+### Application
 
-环境：Erupt 1.7 + Springboot 2.5 + JDK 1.8 + MySQL + Maven（IntelliJ 自带版本）
+#### Environment
 
-##### demo 程序
+|    环境    |          版本          |
+| :--------: | :--------------------: |
+|   Erupt    |         1.7.x          |
+| SpringBoot |         2.5.0          |
+|   MySQL    |         8.0.17         |
+|    JDK     |          1.8           |
+|   Maven    | IntelliJ IDEA 自带版本 |
 
-- 本地创建数据库，名字为 zoo
-- 修改 `application.properties`，将数据库密码修改成你自己的
-- 用户名：erupt  密码：erupt
+#### demo 程序
+
+如何运行：
+
+1. 本地创建数据库
+
+    |     名称      |         值         |
+    | :-----------: | :----------------: |
+    | Database Name |        zoo         |
+    | Character Set |      utf8mb4       |
+    |   Collation   | utf8mb4_0900_ai_ci |
+
+2. 修改 `application.properties`，将数据库密码修改成本地的值
+3. 系统登录用户名：erupt  密码：erupt
 
