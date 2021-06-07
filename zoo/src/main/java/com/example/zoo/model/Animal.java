@@ -1,6 +1,5 @@
 package com.example.zoo.model;
 
-import com.example.zoo.handler.SpeciesHandlerImpl;
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
@@ -70,6 +69,7 @@ public class Animal {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
+                            // 下拉框 label, value
                             fetchHandlerParams = {"select species_id, species_name from species"}
                     )
 
