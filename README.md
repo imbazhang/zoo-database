@@ -5,8 +5,8 @@ Final Project of Database System
 
 ### Deadline
 
-- [ ] milestone 1: `2021/06/07`, preparation
-- [ ] milestone 2: `2021/06/21 - 2021/06/28`, presentation
+- [x] milestone 1: `2021/06/07`, preparation
+- [ ] milestone 2: `2021/06/21 - 2021/06/28`, project presentation
 - [ ] milestone 3: `2021/07/02 00:00`, ftp commit
 
 
@@ -27,8 +27,6 @@ Final Project of Database System
 
 
 ### Application
-
-#### Environment
 
 |    环境    |          版本          |
 | :--------: | :--------------------: |
