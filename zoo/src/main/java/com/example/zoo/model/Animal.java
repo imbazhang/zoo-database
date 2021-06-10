@@ -57,7 +57,14 @@ public class Animal {
 
     @EruptField(
             views = @View(title = "健康状况"),
-            edit = @Edit(title = "健康状况")
+            edit = @Edit(title = "健康状况", type = EditType.CHOICE,
+                    choiceType = @ChoiceType(
+                            vl = {
+                                    @VL(label = "健康", value = "healthy"),
+                                    @VL(label = "待诊断", value = "to be diagnosed"),
+                                    @VL(label = "生病", value = "unhealthy"),
+                            }
+                    ))
     )
     private String health;
 

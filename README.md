@@ -36,11 +36,13 @@ Final Project of Database System
 |    JDK     |          1.8           |
 |   Maven    | IntelliJ IDEA 自带版本 |
 
-#### demo 程序
+#### 应用程序
 
 如何运行：
 
-1. 本地创建数据库
+1. 删除 `.erupt` 文件夹（假如存在的话）
+
+2. 本地创建数据库
 
     |     名称      |         值         |
     | :-----------: | :----------------: |
@@ -48,6 +50,7 @@ Final Project of Database System
     | Character Set |      utf8mb4       |
     |   Collation   | utf8mb4_0900_ai_ci |
 
-2. 修改 `application.properties`，将数据库密码修改成本地的值
-3. 系统登录用户名：erupt  密码：erupt
+3. 修改 `application.properties`，将数据库密码修改成本地的值
+
+4. 系统登录用户名：erupt  密码：erupt
 

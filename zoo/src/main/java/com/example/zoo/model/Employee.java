@@ -54,8 +54,8 @@ public class Employee {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             vl = {
-                                    @VL(label = "男", value = "男"),
-                                    @VL(label = "女", value = "女"),
+                                    @VL(label = "男", value = "male"),
+                                    @VL(label = "女", value = "female"),
                             }
                     )
             )

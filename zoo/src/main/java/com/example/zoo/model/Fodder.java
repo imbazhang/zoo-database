@@ -4,7 +4,10 @@ import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
 import xyz.erupt.annotation.sub_field.Edit;
+import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
+import xyz.erupt.annotation.sub_field.sub_edit.ChoiceType;
+import xyz.erupt.annotation.sub_field.sub_edit.VL;
 import xyz.erupt.jpa.model.BaseModel;
 
 import javax.persistence.*;
@@ -57,13 +60,30 @@ public class Fodder {
 
     @EruptField(
             views = @View(title = "供应渠道"),
-            edit = @Edit(title = "供应渠道")
+            edit = @Edit(
+                    title = "供应渠道",
+                    type = EditType.CHOICE,
+                    choiceType = @ChoiceType(
+                            vl = {
+                                    @VL(label = "农贸市场", value = "market"),
+                                    @VL(label = "冷链", value = "cold chain"),
+                                    @VL(label = "生产商", value = "manufacturer"),
+                            }
+                    ))
     )
     private String supplier;
 
     @EruptField(
             views = @View(title = "生产商"),
-            edit = @Edit(title = "生产商")
+            edit = @Edit(title = "供应渠道",
+                    type = EditType.CHOICE,
+                    choiceType = @ChoiceType(
+                            vl = {
+                                    @VL(label = "快乐农场", value = "farm"),
+                                    @VL(label = "北美牧场", value = "pasture"),
+                                    @VL(label = "开心渔业", value = "seafood"),
+                            }
+                    ))
     )
     private String manufacturer;
 }
