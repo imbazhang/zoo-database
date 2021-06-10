@@ -4,9 +4,12 @@ import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
 import xyz.erupt.annotation.sub_field.Edit;
+import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
+import xyz.erupt.annotation.sub_field.sub_edit.CheckboxType;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Erupt(
         name = "物种",
