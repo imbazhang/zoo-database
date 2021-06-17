@@ -20,7 +20,7 @@ import java.util.Date;
         name = "治疗记录",
         primaryKeyCol = "treatmentlog_id"
 )
-@Table(name = "treamentlog")
+@Table(name = "treatmentlog")
 @Entity
 public class Treatmentlog {
     //主键
@@ -53,7 +53,7 @@ public class Treatmentlog {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select employee_id, employee_name from employee where position='兽医'"}
+                            fetchHandlerParams = {"select employee_id, employee_name from employee where position='Veterinarian'"}
                     )
             )
     )

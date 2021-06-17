@@ -47,8 +47,8 @@ public class Animal {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             vl = {
-                                    @VL(label = "雄性", value = "male"),
-                                    @VL(label = "雌性", value = "female"),
+                                    @VL(label = "雄性", value = "Male"),
+                                    @VL(label = "雌性", value = "Female"),
                             }
                     )
             )
