@@ -3,6 +3,7 @@ package com.example.zoo.model;
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
@@ -18,7 +19,10 @@ import java.util.Date;
 
 @Erupt(
         name = "治疗记录",
-        primaryKeyCol = "treatmentlog_id"
+        primaryKeyCol = "treatmentlog_id",
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
 )
 @Table(name = "treatmentlog")
 @Entity
@@ -68,7 +72,11 @@ public class Treatmentlog {
 
     @EruptField(
             views = @View(title = "诊断日期"),
-            edit = @Edit(title = "诊断日期")
+            edit = @Edit(
+                    title = "诊断日期",
+                    search = @Search,
+                    type = EditType.DATE
+            )
     )
     private Date treatment_date;
 }

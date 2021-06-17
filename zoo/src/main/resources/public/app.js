@@ -14,7 +14,7 @@ window.eruptSiteConfig = {
     //logo路径
     logoPath: "erupt.svg",
     //logo文字
-    logoText: "erupt",
+    logoText: "Zoo",
     //自定义导航栏按钮，配置后将会出现在页面右上角
     r_tools: [{
         text: "自定义功能按钮",

@@ -4,6 +4,7 @@ import com.example.zoo.service.OperationHandlerImpl;
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_erupt.RowOperation;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
@@ -22,12 +23,15 @@ import java.util.Date;
 @Erupt(
         name = "喂养记录",
         primaryKeyCol = "feedlog_id",
-        rowOperation = {
-                @RowOperation(
-                        title = "多行操作",
-                        code = "SINGLE",
-                        operationHandler = OperationHandlerImpl.class),
-        }
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
+//        rowOperation = {
+//                @RowOperation(
+//                        title = "多行操作",
+//                        code = "SINGLE",
+//                        operationHandler = OperationHandlerImpl.class),
+//        }
 )
 @Table(name = "feedlog")
 @Entity
@@ -90,11 +94,15 @@ public class Feedlog{
 
     @EruptField(
             views = @View(title = "喂养时间"),
-            edit = @Edit(title = "喂养时间")
+            edit = @Edit(
+                    title = "喂养时间",
+                    search = @Search,
+                    type = EditType.AUTO
+//                    choiceType = @ChoiceType(
+//                            fetchHandler = SqlChoiceFetchHandler.class,
+//                            fetchHandlerParams = {"select distinct record_time from feedlog"}
+//                    )
+            )
     )
     private Date record_time;
-
-//    @EruptField (
-//
-//    )
 }
