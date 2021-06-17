@@ -1,4 +1,4 @@
-package com.example.zoo;
+package com.dbcourse.zoo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

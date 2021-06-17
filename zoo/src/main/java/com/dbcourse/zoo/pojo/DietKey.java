@@ -1,4 +1,4 @@
-package com.example.zoo.pojo;
+package com.dbcourse.zoo.pojo;
 
 import java.io.Serializable;
 

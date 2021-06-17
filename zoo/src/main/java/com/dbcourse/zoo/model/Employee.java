@@ -1,4 +1,4 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
 import org.checkerframework.checker.units.qual.C;
 import org.hibernate.annotations.GenericGenerator;

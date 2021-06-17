@@ -1,4 +1,4 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;

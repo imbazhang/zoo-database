@@ -1,5 +1,6 @@
-package com.example.zoo.model;
-import com.example.zoo.pojo.DietKey;
+package com.dbcourse.zoo.model;
+
+import com.dbcourse.zoo.pojo.AffiliationKey;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
 import xyz.erupt.annotation.sub_erupt.Power;
@@ -13,48 +14,44 @@ import xyz.erupt.upms.handler.SqlChoiceFetchHandler;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Erupt(name ="物种饮食",
-        primaryKeyCol = "species_id",
+@Erupt(
+        name ="组织",
+        primaryKeyCol = "team_id",
         power = @Power(add = true, delete = true,
                 edit = true, query = true,
                 importable = true, export = true)
 )
-@Table(name = "diet")
-@IdClass(DietKey.class)
+@Table(name = "affiliation")
+@IdClass(AffiliationKey.class)
 @Entity
-public class Diet implements Serializable {
+public class Affiliation implements Serializable {
 
     @Id
-    @Column(name = "species_id")
+    @Column(name = "team_id")
     @EruptField(
-            views = @View(title = "物种名称"),
-            edit = @Edit(
-                    title = "物种名称",
+            views = @View(title = "小队编号"),
+            edit = @Edit(search = @Search,
+                    title = "小队编号",
                     type = EditType.CHOICE,
-                    search = @Search,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select species_id, species_name from species"}
-                    )
-            )
-
+                            fetchHandlerParams = {"select team_id from team"}
+                    ))
     )
-    private Integer species_id;
+    private Integer team_id;
 
     @Id
-    @Column(name = "fodder_id")
+    @Column(name = "employee_id")
     @EruptField(
-            views = @View(title = "饲料名称"),
-            edit = @Edit(
-                    title = "饲料名称",
+            views = @View(title = "雇员编号"),
+            edit = @Edit(search = @Search,
+                    title = "雇员编号",
                     type = EditType.CHOICE,
-                    search = @Search,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select fodder_id, fodder_name from fodder"}
-                    )
-            )
+                            fetchHandlerParams = {"select employee_id, employee_name from employee"}
+                    ))
     )
-    private Integer fodder_id;
+    private Integer employee_id;
 
 }

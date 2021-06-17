@@ -1,6 +1,6 @@
-package com.example.zoo.service;
+package com.dbcourse.zoo.service;
 
-import com.example.zoo.model.Feedlog;
+import com.dbcourse.zoo.model.Feedlog;
 import xyz.erupt.annotation.fun.OperationHandler;
 
 import java.util.List;
