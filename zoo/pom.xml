@@ -8,11 +8,11 @@
         <version>2.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.dbcourse</groupId>
     <artifactId>zoo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>zoo</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Zoo Application</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

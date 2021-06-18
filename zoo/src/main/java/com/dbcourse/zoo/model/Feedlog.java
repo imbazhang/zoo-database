@@ -1,8 +1,9 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
@@ -18,11 +19,20 @@ import java.util.Date;
 
 @Erupt(
         name = "喂养记录",
-        primaryKeyCol = "feedlog_id"
+        primaryKeyCol = "feedlog_id",
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
+//        rowOperation = {
+//                @RowOperation(
+//                        title = "多行操作",
+//                        code = "SINGLE",
+//                        operationHandler = OperationHandlerImpl.class),
+//        }
 )
 @Table(name = "feedlog")
 @Entity
-public class Feedlog {
+public class Feedlog{
     //主键
     @Id
     @GeneratedValue(generator = "generator")
@@ -38,7 +48,7 @@ public class Feedlog {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select animal_id from animal"}
+                            fetchHandlerParams = {"select animal_id, name from animal"}
                     )
 
             )
@@ -67,7 +77,7 @@ public class Feedlog {
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select employee_id, employee_name from employee where position='饲养员'"}
+                            fetchHandlerParams = {"select employee_id, employee_name from employee where position='Breeder'"}
                     )
             )
     )
@@ -81,7 +91,15 @@ public class Feedlog {
 
     @EruptField(
             views = @View(title = "喂养时间"),
-            edit = @Edit(title = "喂养时间")
+            edit = @Edit(
+                    title = "喂养时间",
+                    search = @Search,
+                    type = EditType.AUTO
+//                    choiceType = @ChoiceType(
+//                            fetchHandler = SqlChoiceFetchHandler.class,
+//                            fetchHandlerParams = {"select distinct record_time from feedlog"}
+//                    )
+            )
     )
     private Date record_time;
 }

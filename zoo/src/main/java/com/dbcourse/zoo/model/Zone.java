@@ -1,8 +1,9 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.View;
 
@@ -13,7 +14,10 @@ import javax.persistence.Table;
 
 @Erupt(
         name = "区域",
-        primaryKeyCol = "zone_id"
+        primaryKeyCol = "zone_id",
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
 )
 @Table(name = "zone")
 @Entity

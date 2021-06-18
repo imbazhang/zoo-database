@@ -1,8 +1,9 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
@@ -14,61 +15,56 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Erupt(
-        name = "治疗记录",
-        primaryKeyCol = "treatmentlog_id"
+        name = "小队",
+        primaryKeyCol = "team_id",
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
 )
-@Table(name = "treamentlog")
+@Table(name = "team")
 @Entity
-public class Treatmentlog {
+public class Team {
     //主键
     @Id
     @GeneratedValue(generator = "generator")
     @GenericGenerator(name = "generator", strategy = "native")
     @EruptField
-    private Long treatmentlog_id;
+    private Long team_id;
 
     @EruptField(
-            views = @View(title = "动物"),
+            views = @View(title = "区域"),
             edit = @Edit(
                     search = @Search,
-                    title = "动物",
+                    title = "区域",
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select animal_id from animal"}
+                            fetchHandlerParams = {"select zone_id, zone_name from zone"}
                     )
 
             )
     )
-    private Integer animal_id;
+    private Integer zone_id;
 
     @EruptField(
-            views = @View(title = "兽医"),
+            views = @View(title = "小队长"),
             edit = @Edit(
                     search = @Search,
-                    title = "兽医",
+                    title = "小队长",
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
                             fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select employee_id, employee_name from employee where position='兽医'"}
+                            fetchHandlerParams = {"select employee_id, employee_name from employee"}
                     )
             )
     )
     private Integer employee_id;
 
     @EruptField(
-            views = @View(title = "诊断结果"),
-            edit = @Edit(title = "诊断结果")
+            views = @View(title = "人数"),
+            edit = @Edit(title = "人数")
     )
-    private String diagnostic;
-
-
-    @EruptField(
-            views = @View(title = "诊断日期"),
-            edit = @Edit(title = "诊断日期")
-    )
-    private Date treatment_date;
+    private Integer total_cnt;
 }

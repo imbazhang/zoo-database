@@ -1,8 +1,9 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
-import com.example.zoo.pojo.AffiliationKey;
+import com.dbcourse.zoo.pojo.AffiliationKey;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
@@ -13,7 +14,13 @@ import xyz.erupt.upms.handler.SqlChoiceFetchHandler;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Erupt(name ="组织",primaryKeyCol = "team_id")
+@Erupt(
+        name ="组织",
+        primaryKeyCol = "team_id",
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
+)
 @Table(name = "affiliation")
 @IdClass(AffiliationKey.class)
 @Entity

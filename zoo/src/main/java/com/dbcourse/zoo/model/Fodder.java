@@ -1,22 +1,28 @@
-package com.example.zoo.model;
+package com.dbcourse.zoo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.sub_edit.ChoiceType;
-import xyz.erupt.annotation.sub_field.sub_edit.VL;
-import xyz.erupt.jpa.model.BaseModel;
+import xyz.erupt.annotation.sub_field.sub_edit.Search;
+import xyz.erupt.upms.handler.SqlChoiceFetchHandler;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-import java.util.List;
 
 @Erupt(
         name = "饲料",
-        primaryKeyCol = "fodder_id"
+        primaryKeyCol = "fodder_id",
+        power = @Power(add = true, delete = true,
+                edit = true, query = true,
+                importable = true, export = true)
 )
 @Table(name = "fodder")
 @Entity
@@ -30,7 +36,15 @@ public class Fodder {
 
     @EruptField(
             views = @View(title = "饲料名"),
-            edit = @Edit(title = "饲料名")
+            edit = @Edit(
+                    title = "饲料名",
+                    search = @Search,
+                    type = EditType.CHOICE,
+                    choiceType = @ChoiceType(
+                            fetchHandler = SqlChoiceFetchHandler.class,
+                            fetchHandlerParams = {"select distinct fodder_name from fodder"}
+                    )
+            )
     )
     private String fodder_name;
 
@@ -62,28 +76,27 @@ public class Fodder {
             views = @View(title = "供应渠道"),
             edit = @Edit(
                     title = "供应渠道",
+                    search = @Search,
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
-                            vl = {
-                                    @VL(label = "农贸市场", value = "market"),
-                                    @VL(label = "冷链", value = "cold chain"),
-                                    @VL(label = "生产商", value = "manufacturer"),
-                            }
-                    ))
+                            fetchHandler = SqlChoiceFetchHandler.class,
+                            fetchHandlerParams = {"select distinct supplier from fodder"}
+                    )
+            )
     )
     private String supplier;
 
     @EruptField(
             views = @View(title = "生产商"),
-            edit = @Edit(title = "供应渠道",
+            edit = @Edit(
+                    title = "生产商",
+                    search = @Search,
                     type = EditType.CHOICE,
                     choiceType = @ChoiceType(
-                            vl = {
-                                    @VL(label = "快乐农场", value = "farm"),
-                                    @VL(label = "北美牧场", value = "pasture"),
-                                    @VL(label = "开心渔业", value = "seafood"),
-                            }
-                    ))
+                            fetchHandler = SqlChoiceFetchHandler.class,
+                            fetchHandlerParams = {"select distinct manufacturer from fodder"}
+                    )
+            )
     )
     private String manufacturer;
 }
