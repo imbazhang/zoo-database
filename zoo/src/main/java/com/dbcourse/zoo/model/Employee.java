@@ -41,11 +41,11 @@ public class Employee {
             edit = @Edit(
                     title = "姓名",
                     search = @Search,
-                    type = EditType.CHOICE,
-                    choiceType = @ChoiceType(
-                            fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select distinct employee_name from employee"}
-                    )
+                    type = EditType.AUTO
+//                    choiceType = @ChoiceType(
+//                            fetchHandler = SqlChoiceFetchHandler.class,
+//                            fetchHandlerParams = {"select distinct employee_name from employee"}
+//                    )
             )
     )
     private String employee_name;

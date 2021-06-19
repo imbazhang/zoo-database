@@ -39,11 +39,11 @@ public class Animal {
             edit = @Edit(
                     search = @Search,
                     title = "名字",
-                    type = EditType.CHOICE,
-                    choiceType = @ChoiceType (
-                            fetchHandler = SqlChoiceFetchHandler.class,
-                            fetchHandlerParams = {"select name from animal"}
-                    )
+                    type = EditType.AUTO
+//                    choiceType = @ChoiceType (
+//                            fetchHandler = SqlChoiceFetchHandler.class,
+//                            fetchHandlerParams = {"select name from animal"}
+//                    )
             )
     )
     private String name;
